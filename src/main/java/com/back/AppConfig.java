@@ -3,6 +3,7 @@ package com.back;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.annotation.Order;
 
 @Configuration
 public class AppConfig {
@@ -24,16 +25,19 @@ public class AppConfig {
         return 100;
     }
 
-//    @Bean
-//    public ApplicationRunner myApplicationRunner() {
-//        return new MyApplicationRunner();
-//    }
-
+    @Bean
+    @Order(1)
+    public ApplicationRunner myApplicationRunner1() {
+        return args -> {
+            System.out.println("MyApplication1 is runnig");
+        };
+    }
 
     @Bean
-    public ApplicationRunner myApplicationRunner() {
+    @Order(2)
+    public ApplicationRunner myApplicationRunner2() {
         return args -> {
-            System.out.println("MyApplication is runnig");
+            System.out.println("MyApplication2 is runnig");
         };
     }
 }
