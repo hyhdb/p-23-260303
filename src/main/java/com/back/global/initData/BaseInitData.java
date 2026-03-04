@@ -1,4 +1,5 @@
 package com.back.global.initData;
+
 import com.back.domain.member.entity.Member;
 import com.back.domain.member.service.MemberService;
 import com.back.domain.wiseSaying.service.WiseSayingService;
@@ -50,9 +51,7 @@ public class BaseInitData {
     void work2() {
         Member m1 = memberService.findByUsername("user1").get();
         m1.setNickname("유저1-수정");
-
     }
-
 
     void work3() {
 

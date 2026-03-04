@@ -48,6 +48,7 @@ public class WiseSayingController {
                 """.formatted(wiseSayingsList);
     }
 
+
     @GetMapping("/{id}/delete") // delete/1, delete/2
     @ResponseBody
     public String delete(
@@ -75,7 +76,9 @@ public class WiseSayingController {
 
     @GetMapping("/{id}")
     @ResponseBody
-    public String detail(@PathVariable int id) {
+    public String detail(
+            @PathVariable int id
+    ) {
 
         WiseSaying wiseSaying = wiseSayingService.findById(id);
         return """
