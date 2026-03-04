@@ -1,9 +1,12 @@
 package com.back;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.core.annotation.Order;
+import org.springframework.transaction.annotation.Transactional;
 
 @Configuration
 public class AppConfig {
@@ -39,5 +42,27 @@ public class AppConfig {
         return args -> {
             System.out.println("MyApplication2 is runnig");
         };
+    }
+
+    @Autowired
+    @Lazy
+    private AppConfig self;
+
+    @Bean
+    public ApplicationRunner myApplicationRunner3() {
+        return args -> {
+            work1();
+            work2();
+        };
+    }
+
+    @Transactional
+    public void work1() {
+        System.out.println("회원 테스트 데이터 생성");
+    }
+
+    @Transactional
+    public void work2() {
+        System.out.println("work2 is running");
     }
 }
