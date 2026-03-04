@@ -46,13 +46,13 @@ public class AppConfig {
 
     @Autowired
     @Lazy
-    private AppConfig self;
+    private AppConfig self; //AppConfigProxy의 리모콘
 
     @Bean
     public ApplicationRunner myApplicationRunner3() {
         return args -> {
-            work1();
-            work2();
+            self.work1();
+            self.work2();
         };
     }
 

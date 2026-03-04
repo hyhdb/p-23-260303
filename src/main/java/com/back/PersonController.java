@@ -14,7 +14,7 @@ public class PersonController {
     @GetMapping("/people")
     @ResponseBody
     public String people() {
-
+        System.out.println("test");
         return "사람 수 : %d".formatted(personService.count());
     }
 }
